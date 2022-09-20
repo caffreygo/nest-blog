@@ -11,6 +11,8 @@ export class AuthController {
     return body
   }
 
-  //   @Post('login')
-  //   login() {}
+  @Post('login')
+  login() {
+    return 'abc'
+  }
 }
