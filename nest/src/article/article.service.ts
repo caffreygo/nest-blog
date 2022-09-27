@@ -1,13 +1,17 @@
 import { PrismaService } from '@/prisma/prisma.service'
 import { Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
+import { CreateArticleDto } from './dto/create-article.dto'
+import { UpdateArticleDto } from './dto/update-article.dto'
 
 @Injectable()
 export class ArticleService {
   constructor(private prisma: PrismaService, private config: ConfigService) {}
-  // create(createArticleDto: CreateArticleDto) {
-  //   return 'This action adds a new article'
-  // }
+  create(createArticleDto: CreateArticleDto) {
+    return this.prisma.article.create({
+      data: createArticleDto,
+    })
+  }
 
   async findAll(args: Record<string, any>) {
     const page = args.page ? +args.page : 1
@@ -29,15 +33,28 @@ export class ArticleService {
     }
   }
 
-  // findOne(id: number) {
-  //   return `This action returns a #${id} article`
-  // }
+  findOne(id: number) {
+    return this.prisma.article.findUnique({
+      where: {
+        id,
+      },
+    })
+  }
 
-  // update(id: number, updateArticleDto: UpdateArticleDto) {
-  //   return `This action updates a #${id} article`
-  // }
+  update(id: number, updateArticleDto: UpdateArticleDto) {
+    return this.prisma.article.update({
+      where: {
+        id,
+      },
+      data: updateArticleDto,
+    })
+  }
 
-  // remove(id: number) {
-  //   return `This action removes a #${id} article`
-  // }
+  remove(id: number) {
+    return this.prisma.article.delete({
+      where: {
+        id,
+      },
+    })
+  }
 }
