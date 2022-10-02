@@ -9,7 +9,11 @@ export class ArticleService {
   constructor(private prisma: PrismaService, private config: ConfigService) {}
   create(createArticleDto: CreateArticleDto) {
     return this.prisma.article.create({
-      data: createArticleDto,
+      data: {
+        title: createArticleDto.title,
+        content: createArticleDto.content,
+        categoryId: +createArticleDto.categoryId,
+      },
     })
   }
 
@@ -46,7 +50,11 @@ export class ArticleService {
       where: {
         id,
       },
-      data: updateArticleDto,
+      data: {
+        title: updateArticleDto.title,
+        content: updateArticleDto.content,
+        categoryId: +updateArticleDto.categoryId,
+      },
     })
   }
 
