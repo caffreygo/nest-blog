@@ -1,6 +1,6 @@
 import { registerDecorator, ValidationArguments, ValidationOptions } from 'class-validator'
 
-//表字段是否唯一
+//判断 key_confirm 和 key 字段的值是否相等 （两次密码是否一致）
 export function IsConfirm(validationOptions?: ValidationOptions) {
   return function (object: Record<string, any>, propertyName: string) {
     registerDecorator({
