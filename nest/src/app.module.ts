@@ -4,7 +4,7 @@ import { AuthModule } from './auth/auth.module'
 import { PrismaService } from './prisma/prisma.service'
 import { PrismaModule } from './prisma/prisma.module'
 import { ArticleModule } from './article/article.module'
-import { CategoryModule } from './category/category.module';
+import { CategoryModule } from './category/category.module'
 
 @Module({
   imports: [
