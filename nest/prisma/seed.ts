@@ -10,6 +10,7 @@ async function run() {
     data: {
       name: 'admin',
       password: await hash('admin888'),
+      role: 'admin'
     },
   })
 
