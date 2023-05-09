@@ -9,6 +9,10 @@ async function bootstrap() {
   app.useGlobalPipes(new Validate())
   app.useGlobalInterceptors(new TransformInterceptor())
   app.setGlobalPrefix('api')
+  // 设置静态资源可访问路径
+  app.useStaticAssets('uploads', {
+    prefix: '/uploads',
+  })
   await app.listen(3000)
 }
 bootstrap()
