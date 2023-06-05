@@ -4,7 +4,7 @@ import { AuthModule } from './auth/auth.module'
 import { PrismaModule } from './prisma/prisma.module'
 import { ArticleModule } from './article/article.module'
 import { CategoryModule } from './category/category.module'
-import { UploadModule } from './upload/upload.module';
+import { UploadModule } from './upload/upload.module'
 
 @Module({
   imports: [
