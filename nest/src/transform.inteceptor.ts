@@ -6,7 +6,7 @@ export class TransformInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler) {
     return next.handle().pipe(
       map((data) => {
-        return data?.meta ? data : { data }
+        return data?.data ? data : { data }
       }),
     )
   }
